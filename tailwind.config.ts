@@ -1,6 +1,4 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
+const config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,6 +6,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        roboto: ['Roboto', 'sans-serif'],
+        myFont: ['"MyFont"', 'sans-serif'],
+        head: ['"Fredericka the Great"', 'serif'],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -16,4 +19,5 @@ const config: Config = {
   },
   plugins: [],
 };
+
 export default config;
