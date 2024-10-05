@@ -51,10 +51,10 @@ export default function Login() {
 
             <input
               type="password" 
-              placeholder="  Password"
+              placeholder="Password"
               value={password} 
               onChange={(e) => setPassword(e.target.value)} 
-              className="bg-white text-slate-900 text-xl bg-opacity-40 h-12 rounded-2xl"
+              className="bg-white text-slate-900 text-xl bg-opacity-40 h-12 rounded-2xl pl-4 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
             />
             <span
               className="absolute right-3 top-11"
