@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation"; 
-import bg1 from "../../public/assets/login img/f32.png";
+import bg1 from "../../public/assets/login img/finalsize-1.png";
 import icon from "../../public/assets/login img/danger.png";
 import Image from "next/image";
 
@@ -54,7 +54,7 @@ export default function Login() {
               placeholder="Password"
               value={password} 
               onChange={(e) => setPassword(e.target.value)} 
-              className="bg-white text-slate-900 text-xl bg-opacity-40 h-12 rounded-2xl pl-4 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+              className="bg-white text-slate-900 text-xl bg-opacity-40 h-12 rounded-2xl pl-4 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
             />
             <span
               className="absolute right-3 top-11"
@@ -65,7 +65,7 @@ export default function Login() {
             </span>
             <button 
               type="submit" 
-              className="bg-blue-500 text-white rounded-2xl text-xl  hover:bg-blue-600 h-10 transition duration-200"
+              className="bg-blue-500 text-white rounded-2xl text-xl font-medium hover:text-blue-100 hover:bg-blue-600 h-12 transition duration-200"
             >
               Login
             </button>
