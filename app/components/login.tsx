@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation"; 
-import bg1 from "../../public/assets/login img/farcry3.jpg";
+import bg1 from "../../public/assets/login img/f32.png";
 import icon from "../../public/assets/login img/danger.png";
 import Image from "next/image";
 
