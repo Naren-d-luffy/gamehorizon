@@ -1,28 +1,64 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation"; 
-import bg1 from "../../public/assets/login img/finalsize-1.png";
+import bg1 from "../../public/assets/login img/finalsize.png";
+import bg2 from "../../public/assets/login img/finalsize-1.png";
+import bg3 from "../../public/assets/login img/finalsize-2.png";
+import bg4 from "../../public/assets/login img/finalsize-3.png";
+import bg5 from "../../public/assets/login img/finalsize-4.png";
+import bg6 from "../../public/assets/login img/finalsize-5.png";
+import bg7 from "../../public/assets/login img/finalsize-6.png";
+import bg8 from "../../public/assets/login img/finalsize-7.png";
 import icon from "../../public/assets/login img/danger.png";
 import Image from "next/image";
 
 export default function Login() {
   const [isHovered, setIsHovered] = useState(false);
   const [password, setPassword] = useState(""); 
+  const [backgroundImage, setBackgroundImage] = useState(bg1.src); 
+  const [isPasswordCorrect, setIsPasswordCorrect] = useState(true); 
   const router = useRouter(); 
+
+  const backgrounds = [
+    bg1.src,
+    bg2.src,
+    bg3.src,
+    bg4.src,
+    bg5.src,
+    bg6.src,
+    bg7.src,
+    bg8.src
+  ];
+
+  useEffect(() => {
+    const getRandomBackground = () => {
+      const randomIndex = Math.floor(Math.random() * backgrounds.length);
+      return backgrounds[randomIndex];
+    };
+
+    setBackgroundImage(getRandomBackground());
+
+    const intervalId = setInterval(() => {
+      setBackgroundImage(getRandomBackground()); 
+    }, 5000); 
+
+    return () => clearInterval(intervalId);
+  }, []); 
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (password === "wh0@m!?." ) { 
+      setIsPasswordCorrect(true); 
       router.push("/main"); 
     } else {
-      alert("Incorrect password!"); 
+      setIsPasswordCorrect(false);
     }
   };
 
   return (
     <div
-      className="h-screen w-full bg-cover bg-center flex justify-end items-center"
-      style={{ backgroundImage: `url(${bg1.src})` }}
+      className={`h-screen w-full bg-cover bg-center flex justify-end items-center transition-all duration-500 ease-in-out`} 
+      style={{ backgroundImage: `url(${backgroundImage})` }} 
     >
       <div className="bg-black bg-opacity-70 mr-40 rounded-3xl h-3/5">
         <div className="p-5 h-full flex flex-col justify-around">
@@ -54,7 +90,7 @@ export default function Login() {
               placeholder="Password"
               value={password} 
               onChange={(e) => setPassword(e.target.value)} 
-              className="bg-white text-slate-900 text-xl bg-opacity-40 h-12 rounded-2xl pl-4 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
+              className={`bg-white text-slate-900 text-xl bg-opacity-40 h-12 rounded-2xl pl-4 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50 ${!isPasswordCorrect && "border-2 border-red-500"}`}
             />
             <span
               className="absolute right-3 top-11"
@@ -69,6 +105,7 @@ export default function Login() {
             >
               Login
             </button>
+            {!isPasswordCorrect && <p className="text-red-500 text-center">Incorrect password!</p>} 
           </form>
         </div>
       </div>
