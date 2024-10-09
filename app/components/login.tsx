@@ -11,12 +11,15 @@ import bg7 from "../../public/assets/login img/finalsize-6.png";
 import bg8 from "../../public/assets/login img/finalsize-7.png";
 import icon from "../../public/assets/login img/danger.png";
 import Image from "next/image";
+import Loader from "./Loader/Loader";
 
 export default function Login() {
   const [isHovered, setIsHovered] = useState(false);
   const [password, setPassword] = useState(""); 
   const [backgroundImage, setBackgroundImage] = useState(bg1.src); 
   const [isPasswordCorrect, setIsPasswordCorrect] = useState(true); 
+  const [loading, setLoading] = useState(true); 
+  const [submitting, setSubmitting] = useState(false); 
   const router = useRouter(); 
 
   const backgrounds = [
@@ -42,22 +45,34 @@ export default function Login() {
       setBackgroundImage(getRandomBackground()); 
     }, 5000); 
 
+    setTimeout(() => {
+      setLoading(false);
+    }, 2500);
+
     return () => clearInterval(intervalId);
   }, []); 
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (password === "wh0@m!?." ) { 
-      setIsPasswordCorrect(true); 
-      router.push("/main"); 
-    } else {
-      setIsPasswordCorrect(false);
-    }
+    setSubmitting(true);
+    setTimeout(() => {
+      if (password === "wh0@m!?." ) { 
+        setIsPasswordCorrect(true); 
+        router.push("/main"); 
+      } else {
+        setIsPasswordCorrect(false);
+      }
+      setSubmitting(false); 
+    }, 2000); 
   };
+
+  if (loading || submitting) {
+    return <Loader />;
+  }
 
   return (
     <div
-      className={`h-screen w-full bg-cover bg-center flex justify-end items-center transition-all duration-500 ease-in-out`} 
+      className={`h-screen w-full bg-cover bg-center flex justify-end items-center transition-all duration-1000 ease-in-out`} 
       style={{ backgroundImage: `url(${backgroundImage})` }} 
     >
       <div className="bg-black bg-opacity-70 mr-40 rounded-3xl h-3/5">

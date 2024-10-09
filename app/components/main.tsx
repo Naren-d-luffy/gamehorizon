@@ -1,7 +1,9 @@
+import Loading from "./Loader/Loader";
+
 export default function Main(){
     return(
         <>
-        <div className="bg-black">hello</div>
+       <Loading />
         </>
     )
 }
