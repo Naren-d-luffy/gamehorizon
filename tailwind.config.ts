@@ -14,6 +14,8 @@ const config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        nav: "#4ABFD1",
+        about:"#B9FFF8"
       },
     },
   },

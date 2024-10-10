@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="moving-gradient-bg">
         {children}
       </body>
     </html>

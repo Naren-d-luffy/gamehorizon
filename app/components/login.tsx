@@ -19,7 +19,6 @@ export default function Login() {
   const [backgroundImage, setBackgroundImage] = useState(bg1.src); 
   const [isPasswordCorrect, setIsPasswordCorrect] = useState(true); 
   const [loading, setLoading] = useState(true); 
-  const [submitting, setSubmitting] = useState(false); 
   const router = useRouter(); 
 
   const backgrounds = [
@@ -54,19 +53,16 @@ export default function Login() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitting(true);
-    setTimeout(() => {
       if (password === "wh0@m!?." ) { 
         setIsPasswordCorrect(true); 
         router.push("/main"); 
       } else {
         setIsPasswordCorrect(false);
       }
-      setSubmitting(false); 
-    }, 2000); 
+    
   };
 
-  if (loading || submitting) {
+  if (loading) {
     return <Loader />;
   }
 

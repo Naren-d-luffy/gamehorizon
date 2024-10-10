@@ -1,0 +1,26 @@
+.moving-gradient-bg {
+  width: 100%;
+  height: 100vh;
+  background: rgb(0, 119, 171);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 119, 171, 1) 0%,
+    rgba(11, 0, 130, 1) 30%,
+    rgb(7, 78, 192) 65%,
+    #00284f 100%
+  );
+  background-size: 600% 600%;
+  animation: gradientAnimation 16s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
