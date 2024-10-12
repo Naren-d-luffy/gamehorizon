@@ -24,7 +24,7 @@ export default function About() {
             </div>
           </div>
           <div className="w-10/12 pb-5">
-            <p className="text-xl font-medium font-roboto text-justify text-gray-800 w-3/4">
+            <p className="text-xl font-medium font-roboto text-justify text-gray-800 w-11/12">
               At Game Horizon, we're all about capturing your unique gaming
               experiences. Whether you're reflecting on the games you've
               completed, exploring those you're currently immersed in, or
@@ -42,7 +42,7 @@ export default function About() {
             <h2 className="text-3xl font-medium text-blue-950 font-serif pb-3">
               Why Game Horizon?
             </h2>
-            <p className="text-lg font-medium text-gray-800 pb-3 font-roboto text-justify">
+            <p className="text-lg font-medium text-gray-800 pb-3 font-roboto text-justify w-11/12">
               We believe every gamer has a story to tell. From epic quests and
               strategy-driven battles to casual adventures, each game leaves a
               mark. Game Horizon is here to help you document that journey,

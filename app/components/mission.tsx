@@ -13,10 +13,10 @@ export default function Mission() {
         </div>
 
         <div
-          className="rounded-lg h-fit p-8 w-full flex flex-col items-center"
+          className="rounded-lg h-fit p-8 pl-14 w-full flex flex-col"
           style={{ backgroundImage: `url(/assets/siteBgs/24.jpg)` }}
         >
-          <h2 className="text-xl w-10/12 font-medium text-gray-800 font-sans text-center">
+          <h2 className="text-2xl w-11/12 font-medium text-black font-sans text-justify">
             At Game Horizon, our mission is to build a platform that brings the
             joy of gaming into focus, helping players reflect on the games they
             have played, stay organized with their current adventures, and look
