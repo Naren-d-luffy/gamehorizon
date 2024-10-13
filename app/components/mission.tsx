@@ -30,7 +30,7 @@ export default function Mission() {
           className="rounded-lg h-fit p-8 pl-14 w-full"
           style={{ backgroundImage: `url(/assets/siteBgs/25.jpg)` }}
         >
-          <h2 className="font-head font-medium text-4xl text-blue-950 pb-3 w-11/12">
+          <h2 className="font-serif font-medium text-4xl text-blue-950 pb-3 w-11/12">
             1. Celebrate Your Gaming Journey
           </h2>
           <p className="font-serif text-xl text-gray-700 w-11/12 text-justify">
@@ -47,7 +47,7 @@ export default function Mission() {
           className="rounded-lg h-fit p-8 pl-14 w-full"
           style={{ backgroundImage: `url(/assets/siteBgs/26.jpg)` }}
         >
-          <h2 className="font-head font-medium text-4xl text-blue-950 pb-3 w-11/12">
+          <h2 className="font-serif font-medium text-4xl text-blue-950 pb-3 w-11/12">
             2. Simplify Game Tracking
           </h2>
           <p className="font-serif text-xl text-gray-700 w-11/12 text-justify">
@@ -64,7 +64,7 @@ export default function Mission() {
           className="rounded-lg h-fit p-8 pl-14 w-full"
           style={{ backgroundImage: `url(/assets/siteBgs/27.jpg)` }}
         >
-          <h2 className="font-head font-medium text-4xl text-blue-950 pb-3 w-11/12">
+          <h2 className="font-serif font-medium text-4xl text-blue-950 pb-3 w-11/12">
             3. Inspire Future Playthroughs
           </h2>
           <p className="font-serif text-xl text-gray-700 w-11/12 text-justify">
@@ -81,7 +81,7 @@ export default function Mission() {
           className="rounded-lg h-fit p-8 pl-14 w-full"
           style={{ backgroundImage: `url(/assets/siteBgs/29.jpg)` }}
         >
-          <h2 className="font-head font-medium text-4xl text-blue-950 pb-3 w-11/12">
+          <h2 className="font-serif font-medium text-4xl text-blue-950 pb-3 w-11/12">
             4. Foster a Community of Gamers
           </h2>
           <p className="font-serif text-xl text-gray-700 w-11/12 text-justify">
@@ -98,7 +98,7 @@ export default function Mission() {
           className="rounded-lg h-fit p-6 pl-14 w-full bg-no-repeat"
           style={{ backgroundImage: `url(/assets/siteBgs/30.jpg)` }}
         >
-          <h2 className="font-head font-medium text-4xl text-blue-950 pb-3 w-11/12">
+          <h2 className="font-serif font-medium text-4xl text-blue-950 pb-3 w-11/12">
             5. Constantly Evolving for Gamers
           </h2>
           <p className="font-serif text-xl text-gray-700 w-11/12 text-justify">

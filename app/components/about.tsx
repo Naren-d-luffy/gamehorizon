@@ -64,6 +64,24 @@ export default function About() {
             </ul>
           </div>
         </div>
+        <div
+          className="bg-black bg-opacity-30 rounded-lg h-fit w-full flex justify-center p-10"
+          style={{ backgroundImage: `url(/assets/siteBgs/23.jpg)` }}
+        >
+          <div className="w-10/12">
+            <h2 className="text-3xl font-medium text-blue-950 font-serif pb-3">
+              Our Vision
+            </h2>
+            <p className="text-lg font-medium text-gray-800 pb-3 font-roboto text-justify w-11/12">
+              At its core, Game Horizon aims to be more than just a game
+              tracker. We want to become your go-to hub for managing, reflecting
+              on, and discovering games, while also building a thriving
+              community of passionate gamers. As we expand, our vision is to
+              bring gamers together, helping you find new experiences, celebrate
+              your achievements, and share your gaming story with others.
+            </p>
+          </div>
+        </div>
       </div>
     </>
   );
