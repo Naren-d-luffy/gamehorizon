@@ -1,13 +1,18 @@
-
 export default function Contact() {
-
-
   return (
-    <div className="w-8/12 mx-auto bg-white shadow-md rounded m-8 p-8" style={{ backgroundImage: `url(/assets/siteBgs/22.jpg)` }}>
-      <h2 className="font-head font-medium text-5xl text-blue-950 mb-6 text-center">Contact Us</h2>
+    <div
+      className="w-8/12 mx-auto bg-white shadow-md rounded m-8 p-8"
+      style={{ backgroundImage: `url(/assets/siteBgs/22.jpg)` }}
+    >
+      <h2 className="font-head font-medium text-5xl text-blue-950 mb-6 text-center">
+        Contact Us
+      </h2>
       <form>
         <div className="mb-4">
-          <label className="font-serif text-xl text-gray-700 font-bold mb-2" htmlFor="name">
+          <label
+            className="font-serif text-xl text-gray-700 font-bold mb-2"
+            htmlFor="name"
+          >
             Name
           </label>
           <input
@@ -20,7 +25,10 @@ export default function Contact() {
         </div>
 
         <div className="mb-4">
-          <label className="font-serif text-xl text-gray-700 font-bold mb-2" htmlFor="email">
+          <label
+            className="font-serif text-xl text-gray-700 font-bold mb-2"
+            htmlFor="email"
+          >
             Email
           </label>
           <input
@@ -33,7 +41,10 @@ export default function Contact() {
         </div>
 
         <div className="mb-4">
-          <label className="font-serif text-xl text-gray-700 font-bold mb-2" htmlFor="subject">
+          <label
+            className="font-serif text-xl text-gray-700 font-bold mb-2"
+            htmlFor="subject"
+          >
             Subject
           </label>
           <input
@@ -46,7 +57,10 @@ export default function Contact() {
         </div>
 
         <div className="mb-4">
-          <label className="font-serif text-xl text-gray-700 font-bold mb-2" htmlFor="message">
+          <label
+            className="font-serif text-xl text-gray-700 font-bold mb-2"
+            htmlFor="message"
+          >
             Message
           </label>
           <textarea

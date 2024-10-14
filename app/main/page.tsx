@@ -1,9 +1,9 @@
-import Main from "../components/Main/main"
+import Main from "../components/Main/main";
 
-export default function Feed (){
-    return(
-        <>
-        <Main />
-        </>
-    )
+export default function Feed() {
+  return (
+    <>
+      <Main />
+    </>
+  );
 }

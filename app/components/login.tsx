@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 import bg1 from "../../public/assets/login img/finalsize.png";
 import bg2 from "../../public/assets/login img/finalsize-1.png";
 import bg3 from "../../public/assets/login img/finalsize-2.png";
@@ -15,11 +15,11 @@ import Loader from "./Loader/Loader";
 
 export default function Login() {
   const [isHovered, setIsHovered] = useState(false);
-  const [password, setPassword] = useState(""); 
-  const [backgroundImage, setBackgroundImage] = useState(bg1.src); 
-  const [isPasswordCorrect, setIsPasswordCorrect] = useState(true); 
-  const [loading, setLoading] = useState(true); 
-  const router = useRouter(); 
+  const [password, setPassword] = useState("");
+  const [backgroundImage, setBackgroundImage] = useState(bg1.src);
+  const [isPasswordCorrect, setIsPasswordCorrect] = useState(true);
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   const backgrounds = [
     bg1.src,
@@ -29,7 +29,7 @@ export default function Login() {
     bg5.src,
     bg6.src,
     bg7.src,
-    bg8.src
+    bg8.src,
   ];
 
   useEffect(() => {
@@ -41,25 +41,24 @@ export default function Login() {
     setBackgroundImage(getRandomBackground());
 
     const intervalId = setInterval(() => {
-      setBackgroundImage(getRandomBackground()); 
-    }, 5000); 
+      setBackgroundImage(getRandomBackground());
+    }, 5000);
 
     setTimeout(() => {
       setLoading(false);
     }, 2500);
 
     return () => clearInterval(intervalId);
-  }, []); 
+  }, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-      if (password === "wh0@m!?." ) { 
-        setIsPasswordCorrect(true); 
-        router.push("/main"); 
-      } else {
-        setIsPasswordCorrect(false);
-      }
-    
+    if (password === "wh0@m!?.") {
+      setIsPasswordCorrect(true);
+      router.push("/main");
+    } else {
+      setIsPasswordCorrect(false);
+    }
   };
 
   if (loading) {
@@ -68,8 +67,8 @@ export default function Login() {
 
   return (
     <div
-      className={`h-screen w-full bg-cover bg-center flex justify-end items-center transition-all duration-1000 ease-in-out`} 
-      style={{ backgroundImage: `url(${backgroundImage})` }} 
+      className={`h-screen w-full bg-cover bg-center flex justify-end items-center transition-all duration-1000 ease-in-out`}
+      style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="bg-black bg-opacity-70 mr-40 rounded-3xl h-3/5">
         <div className="p-5 h-full flex flex-col justify-around">
@@ -79,7 +78,10 @@ export default function Login() {
             </p>
           </div>
 
-          <form className="flex flex-col space-y-3 mb-4 relative" onSubmit={handleSubmit}>
+          <form
+            className="flex flex-col space-y-3 mb-4 relative"
+            onSubmit={handleSubmit}
+          >
             <div className="flex justify-between">
               <label
                 htmlFor="password"
@@ -97,11 +99,13 @@ export default function Login() {
             </div>
 
             <input
-              type="password" 
+              type="password"
               placeholder="Password"
-              value={password} 
-              onChange={(e) => setPassword(e.target.value)} 
-              className={`bg-white text-slate-900 text-xl bg-opacity-40 h-12 rounded-2xl pl-4 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50 ${!isPasswordCorrect && "border-2 border-red-500"}`}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className={`bg-white text-slate-900 text-xl bg-opacity-40 h-12 rounded-2xl pl-4 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50 ${
+                !isPasswordCorrect && "border-2 border-red-500"
+              }`}
             />
             <span
               className="absolute right-3 top-11"
@@ -110,13 +114,15 @@ export default function Login() {
             >
               <Image src={icon} alt="icon" title="Password Help" />
             </span>
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="bg-blue-500 text-white rounded-2xl text-xl font-medium hover:text-blue-100 hover:bg-blue-600 h-12 transition duration-200"
             >
               Login
             </button>
-            {!isPasswordCorrect && <p className="text-red-500 text-center">Incorrect password!</p>} 
+            {!isPasswordCorrect && (
+              <p className="text-red-500 text-center">Incorrect password!</p>
+            )}
           </form>
         </div>
       </div>
