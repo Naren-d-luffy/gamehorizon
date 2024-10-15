@@ -15,7 +15,9 @@ const config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         nav: "#4ABFD1",
-        about:"#B9FFF8"
+        about:"#B9FFF8",
+        ctext:"#EAE0D5",
+        btext:"#D7CDCC"
       },
     },
   },
