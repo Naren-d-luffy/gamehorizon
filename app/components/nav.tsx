@@ -24,19 +24,19 @@ export default function Nav() {
         <div className="flex items-center space-x-8">
           <a
             href="/about"
-            className="font-medium text-lg hover:underline hover:border-gray-200 border-transparent border-2 p-2 rounded-lg text-nav"
+            className="font-medium text-lg hover:text-white hover:underline hover:border-gray-200 border-transparent border-2 p-2 rounded-lg text-nav"
           >
             About
           </a>
           <a
             href="/mission"
-            className="font-medium text-lg hover:underline hover:border-gray-200 border-transparent border-2 p-2 rounded-lg text-nav"
+            className="font-medium text-lg hover:text-white hover:underline hover:border-gray-200 border-transparent border-2 p-2 rounded-lg text-nav"
           >
             Mission
           </a>
           <a
             href="/contact"
-            className="font-medium text-lg hover:underline hover:border-gray-200 border-transparent border-2 p-2 rounded-lg text-nav"
+            className="font-medium text-lg hover:text-white hover:underline hover:border-gray-200 border-transparent border-2 p-2 rounded-lg text-nav"
           >
             Contact
           </a>
