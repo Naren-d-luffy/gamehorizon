@@ -67,7 +67,7 @@ export default function Login() {
 
   return (
     <div
-      className={`h-screen w-full bg-cover bg-center flex justify-end items-center transition-all duration-1000 ease-in-out`}
+      className={`h-screen w-full cursor-cu bg-cover bg-center flex justify-end items-center transition-all duration-1000 ease-in-out`}
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="bg-black bg-opacity-70 mr-40 rounded-3xl h-3/5">

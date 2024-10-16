@@ -15,6 +15,11 @@
   scrollbar-width: none;     
 }
 
+
+html, body {
+  cursor: url("/assets/crosshair.png"), crosshair;
+}
+
 html, body {
   margin: 0;
   padding: 0;

@@ -12,14 +12,14 @@ export default function Main() {
           <div className="flex gap-5">
             <div className="relative">
               <div className="absolute inset-0 bg-blue-700 rounded-lg"></div>
-              <p className="relative text-blue-950  bg-blue-300  text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg cursor-pointer transition-all duration-300 ease-in-out">
+              <p className="relative text-blue-950  bg-blue-300  text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg transition-all duration-300 ease-in-out">
                 Played Games
               </p>
             </div>
 
             <div className="relative">
               <div className="absolute inset-0 bg-blue-700 rounded-lg"></div>
-              <p className="relative text-blue-950  bg-blue-300  text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg cursor-pointer transition-all duration-300 ease-in-out">
+              <p className="relative text-blue-950  bg-blue-300  text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg transition-all duration-300 ease-in-out">
                 Currently playing
               </p>
             </div>
@@ -27,7 +27,7 @@ export default function Main() {
             <div className="relative">
               <div className="absolute inset-0 bg-blue-700 rounded-lg"></div>
 
-              <p className="relative text-blue-950  bg-blue-300  text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg cursor-pointer transition-all duration-300 ease-in-out">
+              <p className="relative text-blue-950  bg-blue-300  text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg transition-all duration-300 ease-in-out">
                 Want to play
               </p>
             </div>
@@ -39,7 +39,7 @@ export default function Main() {
         <div className="w-full h-3/4 gap-10 flex p-20 pt-0 pb-5">
           <div className="relative w-1/4 h-4/5">
             <div className="absolute inset-0 bg-teal-500 rounded-2xl"></div>
-            <div className="relative w-full h-full cursor-pointer bg-black rounded-2xl group hover:-translate-y-2 hover:translate-x-2 transition-all duration-300 ease-in-out hover:shadow-lg">
+            <div className="relative w-full h-full bg-black rounded-2xl group hover:-translate-y-2 hover:translate-x-2 transition-all duration-300 ease-in-out hover:shadow-lg">
               <Image src={bully} alt="Bully" className="rounded-t-2xl" />
               <h2 className="text-white text-center font-bold text-xl font-serif p-4 pb-1">
                 Bully - Anniversary Edtion
