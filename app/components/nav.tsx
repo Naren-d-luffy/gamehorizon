@@ -23,23 +23,23 @@ export default function Nav() {
         
 
         <div className="flex items-center justify-center gap-8">
-          <div className="relative mx-2">
+          <div className="relative">
             <div className="absolute inset-0 bg-blue-500 rounded-lg"></div>
             <div className="relative p-1 text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent bg-slate-900 hover:border-white hover:border-2 rounded-md cursor-pointer transition-all duration-300 ease-in-out">
               <a
                 href="/about"
-                className="font-medium text-lg hover:text-white hover:underline px-4 rounded-lg text-nav"
+                className="font-medium text-lg hover:text-white hover:underline px-4 py-3 rounded-lg text-nav"
               >
                 About
               </a>
             </div>
           </div>
-          <div className="relative m-auto">
+          <div className="relative">
             <div className="absolute inset-0 bg-blue-500 rounded-lg"></div>
             <div className="relative p-1 text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent bg-slate-900 hover:border-white hover:border-2 rounded-md cursor-pointer transition-all duration-300 ease-in-out">
               <a
                 href="/mission"
-                className="font-medium text-lg hover:text-white hover:underline px-4 rounded-lg text-nav"
+                className="font-medium text-lg hover:text-white hover:underline px-4 py-3 rounded-lg text-nav"
               >
                 Mission
               </a>
@@ -50,7 +50,7 @@ export default function Nav() {
             <div className="relative p-1 text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent bg-slate-950 hover:border-white hover:border-2 rounded-md cursor-pointer transition-all duration-300 ease-in-out">
               <a
                 href="/contact"
-                className="font-medium text-lg hover:text-white hover:underline px-4 rounded-lg text-nav"
+                className="font-medium text-lg hover:text-white hover:underline px-4 py-3 rounded-lg text-nav"
               >
                 Contact
               </a>
