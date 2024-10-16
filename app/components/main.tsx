@@ -12,24 +12,31 @@ export default function Main() {
           <div className="flex gap-5">
             <div className="relative">
               <div className="absolute inset-0 bg-blue-700 rounded-lg"></div>
-              <p className="relative text-blue-950  bg-blue-300  text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg transition-all duration-300 ease-in-out">
+              <button className="relative text-blue-950  bg-blue-300  text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg transition-all duration-300 ease-in-out">
                 Played Games
-              </p>
+              </button>
             </div>
 
             <div className="relative">
               <div className="absolute inset-0 bg-blue-700 rounded-lg"></div>
-              <p className="relative text-blue-950  bg-blue-300  text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg transition-all duration-300 ease-in-out">
+              <button className="relative text-blue-950  bg-blue-300  text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg transition-all duration-300 ease-in-out">
                 Currently playing
-              </p>
+              </button>
             </div>
 
             <div className="relative">
               <div className="absolute inset-0 bg-blue-700 rounded-lg"></div>
 
-              <p className="relative text-blue-950  bg-blue-300  text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg transition-all duration-300 ease-in-out">
+              <button className="relative text-blue-950  bg-blue-300  text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg transition-all duration-300 ease-in-out">
                 Want to play
-              </p>
+              </button>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-blue-700 rounded-lg"></div>
+
+              <button className="relative text-blue-950  bg-blue-300  text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg transition-all duration-300 ease-in-out">
+                Add a New Game
+              </button>
             </div>
           </div>
 
@@ -47,15 +54,20 @@ export default function Main() {
               <h3 className="text-btext font-medium text-center pb-3">
                 By Rockstar Games
               </h3>
-              <h3 className="text-gray-400 font-medium font-roboto px-4 pb-2">Release Date :{" "}
-              <span className="text-gray-200 font-normal"> 21 Oct, 2008 </span></h3>
+              <h3 className="text-gray-400 font-medium font-roboto px-4 pb-2">
+                Release Date :{" "}
+                <span className="text-gray-200 font-normal">
+                  {" "}
+                  21 Oct, 2008{" "}
+                </span>
+              </h3>
               <h3 className="text-gray-400 font-medium px-4 pb-2">
                 Reviews :{" "}
                 <span className="p-1 bg-green-500 text-green-50 rounded-xl">
                   Very Positive
                 </span>
               </h3>
-              
+
               <h3 className="text-gray-400 font-medium font-roboto px-4 text-justify">
                 Genres :{" "}
                 <span className="text-gray-200 font-normal">
