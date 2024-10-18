@@ -20,7 +20,6 @@ export default function Nav() {
             <Image src={logo} alt="logo" width={250} height={50} />
           </a>
         </div>
-        
 
         <div className="flex items-center justify-center gap-8">
           <div className="relative">

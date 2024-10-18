@@ -13,7 +13,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="no-scrollbar cursor-custom w-full h-full">
-      <body className="moving-gradient-b w-full h-full overflow-auto cursor-custom no-scrollbar bg-cover bg-no-repeat" style={{ backgroundImage: `url(/assets/cb.jpg)` }}>
+      <body
+        className="moving-gradient-b w-full h-full overflow-auto cursor-custom no-scrollbar bg-cover bg-no-repeat"
+        style={{ backgroundImage: `url(/assets/cb.jpg)` }}
+      >
         {children}
       </body>
     </html>
