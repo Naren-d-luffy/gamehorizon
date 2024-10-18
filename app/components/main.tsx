@@ -1,9 +1,17 @@
+"use client"
 import Nav from "./nav";
-import React from "react";
+import React,{useState} from "react";
 import Image from "next/image";
 import bully from "../../public/assets/game/bully.jpg";
+import Create from "./PopUp/Create";
 
 export default function Main() {
+
+  const [isCreated, setIsCreatedOpen] = useState(false);
+
+  const openCreated = () => setIsCreatedOpen(true);
+  const closeCreated = () => setIsCreatedOpen(false);
+
   return (
     <>
       <div className="w-full h-screen ">
@@ -34,7 +42,8 @@ export default function Main() {
             <div className="relative">
               <div className="absolute inset-0 bg-blue-700 rounded-lg"></div>
 
-              <button className="relative text-blue-950  bg-blue-300  text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg transition-all duration-300 ease-in-out">
+              <button className="relative text-blue-950  bg-blue-300  text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg transition-all duration-300 ease-in-out"
+              onClick={openCreated}>
                 Add a New Game
               </button>
             </div>
@@ -93,6 +102,10 @@ export default function Main() {
             <div className="relative w-full h-full bg-black  rounded-2xl group hover:-translate-y-2 hover:translate-x-2 transition-all duration-300 ease-in-out hover:shadow-lg"></div>
           </div>
         </div>
+        <Create 
+        isOpen={isCreated}
+        onClose={closeCreated}
+        />
       </div>
     </>
   );
