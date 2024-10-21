@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import popup from "../../../public/assets/popup.png"
 
 interface ModuleProps {
   isOpen: boolean;
@@ -35,7 +36,7 @@ export default function Create({ isOpen, onClose }: ModuleProps) {
 
   return (
     <div className="w-full fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center z-50">
-      <div className="bg-white w-1/2 p-10 rounded-lg overflow-hidden shadow-xl transform transition-all">
+      <div className="bg-cover w-1/2 p-10 rounded-lg overflow-hidden shadow-xl transform transition-all" style={{ backgroundImage: `url(/assets/controller.png)` }}>
         <div className="flex justify-between">
           <h1 className="text-2xl font-semibold">Add a new Game</h1>
           <button
