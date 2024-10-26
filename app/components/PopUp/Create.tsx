@@ -10,12 +10,13 @@ export default function Create({ isOpen, onClose }: ModuleProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [base64Image, setBase64Image] = useState<string | null>(null);
-  const [gameName, setGameName] = useState("");
-  const [creator, setCreator] = useState("");
-  const [releaseDate, setReleaseDate] = useState("");
+  const [name, setname] = useState("");
+  const [created, setcreated] = useState("");
+  const [date, setdate] = useState("");
   const [category, setCategory] = useState("");
   const [review, setReview] = useState("");
   const [genres, setGenres] = useState<string[]>([]);
+
   const availableGenres = [
     "Adventure",
     "Action",
@@ -38,6 +39,73 @@ export default function Create({ isOpen, onClose }: ModuleProps) {
     "Open world",
     "2D Game",
   ];
+
+  const resetForm = () => {
+    setFile(null);
+    setBase64Image(null);
+    setname("");
+    setcreated("");
+    setdate("");
+    setCategory("");
+    setReview("");
+    setGenres([]);
+  };
+
+  const handleClose = () => {
+    resetForm();
+    onClose();
+  };
+
+  const handleSubmit = async () => {
+    if (!isFormValid()) return;
+
+    const reviewBgColor = getReviewBgClass();
+    const newGame = {
+      name,
+      created,
+      date,
+      type:category,
+      review,
+      color:reviewBgColor, 
+      genres,
+      image: base64Image,
+    };
+
+    try {
+      const response = await fetch("/api/games", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newGame),
+      });
+
+      if (response.ok) {
+        resetForm();
+        onClose();
+        console.log("Game added successfully");
+      } else {
+        console.error("Failed to add game");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  const getReviewBgClass = () => {
+    switch (review) {
+      case "Don't Try":
+        return "bg-red-600";
+      case "Neutral":
+        return "bg-yellow-300";
+      case "Positive":
+        return "bg-green-300";
+      case "Overwhelmingly Positive":
+        return "bg-green-600";
+      default:
+        return "";
+    }
+  };
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -82,29 +150,14 @@ export default function Create({ isOpen, onClose }: ModuleProps) {
 
   const isFormValid = () => {
     return (
-      gameName &&
-      creator &&
-      releaseDate &&
+      name &&
+      created &&
+      date &&
       review &&
       file &&
       genres.length > 0 &&
       category
     );
-  };
-
-  const getReviewBgClass = () => {
-    switch (review) {
-      case "Don't Try":
-        return "bg-red-600";
-      case "Neutral":
-        return "bg-yellow-300";
-      case "Positive":
-        return "bg-green-300";
-      case "Overwhelmingly Positive":
-        return "bg-green-600";
-      default:
-        return "";
-    }
   };
 
   if (!isOpen) return null;
@@ -115,7 +168,7 @@ export default function Create({ isOpen, onClose }: ModuleProps) {
         <div className="flex justify-between">
           <h1 className="text-2xl font-semibold">Add a new Game</h1>
           <button
-            onClick={onClose}
+            onClick={handleClose}
             className="text-white bg-blue-500 px-3 py-1 rounded-md"
           >
             X
@@ -164,8 +217,8 @@ export default function Create({ isOpen, onClose }: ModuleProps) {
               type="text"
               placeholder="Enter Game name..."
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              value={gameName}
-              onChange={(e) => setGameName(e.target.value)}
+              value={name}
+              onChange={(e) => setname(e.target.value)}
             />
           </div>
           <div className="relative mb-6 space-y-2 w-1/2">
@@ -174,8 +227,8 @@ export default function Create({ isOpen, onClose }: ModuleProps) {
               type="text"
               placeholder="Enter Created by..."
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              value={creator}
-              onChange={(e) => setCreator(e.target.value)}
+              value={created}
+              onChange={(e) => setcreated(e.target.value)}
             />
           </div>
         </div>
@@ -186,8 +239,8 @@ export default function Create({ isOpen, onClose }: ModuleProps) {
             <input
               type="date"
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-              value={releaseDate}
-              onChange={(e) => setReleaseDate(e.target.value)}
+              value={date}
+              onChange={(e) => setdate(e.target.value)}
             />
           </div>
 
@@ -261,6 +314,7 @@ export default function Create({ isOpen, onClose }: ModuleProps) {
           className={`w-full py-2 px-4 rounded-md text-white ${
             isFormValid() ? "bg-green-500" : "bg-gray-400 cursor-not-allowed"
           }`}
+          onClick={handleSubmit}
           disabled={!isFormValid()}
         >
           Submit

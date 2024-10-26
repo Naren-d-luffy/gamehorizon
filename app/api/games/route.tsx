@@ -17,3 +17,39 @@ export async function GET(req:NextRequest) {
         await client.close();
     }
 }
+
+
+export async function POST(req: NextRequest) {
+    try {
+      const data = await req.json();
+      const { name, created, date, type, review, color, genres, image } = data;
+
+  
+      await client.connect();
+      const db = client.db("horizon");
+      const collection = db.collection("game");
+
+      const result = await collection.insertOne({
+        name,
+        created,
+        date,
+        type,
+        review,
+        color,
+        genres,
+        image,
+      });
+  
+      return NextResponse.json(
+        { message: "Game added successfully", result },
+        { status: 201 }
+      );
+    } catch (error) {
+      return NextResponse.json(
+        { message: "Failed to add the game", error: error },
+        { status: 500 }
+      );
+    } finally {
+      await client.close();
+    }
+  }

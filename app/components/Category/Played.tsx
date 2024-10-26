@@ -37,8 +37,8 @@ export default function Played() {
     <div className="w-full h-screen ">
       <div className="w-full h-3/4 gap-10 flex p-20 pt-0 pb-5">
         <div className="relative w-1/4 h-4/5">
-          <div className="absolute inset-0 bg-teal-500 rounded-2xl">
             {games.map((game) => (
+              <div className="absolute inset-0 bg-teal-500 rounded-2xl">
               <div
                 className="relative w-full h-full bg-black rounded-2xl group hover:-translate-y-2 hover:translate-x-2 transition-all duration-300 ease-in-out hover:shadow-lg"
                 key={game._id.toString()}
@@ -60,8 +60,8 @@ export default function Played() {
                   Genres: <span className="text-gray-200 font-normal">{game.genres.join(", ")}</span>
                 </h3>
               </div>
+              </div>
             ))}
-          </div>
         </div>
       </div>
     </div>
