@@ -1,16 +1,19 @@
-"use client";
+"use client"
 import Nav from "./nav";
 import React, { useEffect, useState } from "react";
 import Create from "./PopUp/Create";
 import Played from "./Category/Played";
 import Playing from "./Category/Playing";
 import ToPlay from "./Category/ToPlay";
+import Success from "./PopUp/Success";
 
 export default function Main() {
   const [isCreated, setIsCreatedOpen] = useState(false);
+  const [isSuccess, setIsSuccessOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<string>("played");
 
   const openCreated = () => setIsCreatedOpen(true);
+  const openSuccess = () => setIsSuccessOpen(true);
   const closeCreated = () => setIsCreatedOpen(false);
 
   const handleTabChange = (tab: string) => {
@@ -30,6 +33,15 @@ export default function Main() {
     }
   };
 
+  useEffect(() => {
+    if (isSuccess) {
+      const timer = setTimeout(() => {
+        setIsSuccessOpen(false);
+      }, 3000); 
+      return () => clearTimeout(timer);
+    }
+  }, [isSuccess]);
+
   return (
     <>
       <div className="w-full h-screen">
@@ -39,7 +51,7 @@ export default function Main() {
             <div className="relative">
               <div className={`absolute inset-0 bg-blue-700 rounded-lg `}></div>
               <button
-                className={`relative text-blue-950 bg-blue-300 text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg transition-all duration-300 ease-in-out ${
+                className={`relative text-blue-950 bg-blue-300 text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg ${
                   activeTab === "played" && "bg-transparent border-white border-2 text-white hover:text-blue-100"
                 }`}
                 onClick={() => handleTabChange("played")}
@@ -49,9 +61,9 @@ export default function Main() {
             </div>
 
             <div className="relative">
-            <div className={`absolute inset-0 bg-blue-700 rounded-lg `}></div>
+              <div className={`absolute inset-0 bg-blue-700 rounded-lg `}></div>
               <button
-                className={`relative text-blue-950 bg-blue-300 text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg transition-all duration-300 ease-in-out ${
+                className={`relative text-blue-950 bg-blue-300 text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg ${
                   activeTab === "playing" && "bg-transparent border-white border-2 text-white hover:text-blue-100"
                 }`}
                 onClick={() => handleTabChange("playing")}
@@ -61,9 +73,9 @@ export default function Main() {
             </div>
 
             <div className="relative">
-            <div className={`absolute inset-0 bg-blue-700 rounded-lg `}></div>
+              <div className={`absolute inset-0 bg-blue-700 rounded-lg `}></div>
               <button
-                className={`relative text-blue-950 bg-blue-300 text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg transition-all duration-300 ease-in-out ${
+                className={`relative text-blue-950 bg-blue-300 text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg ${
                   activeTab === "toPlay" && "bg-transparent border-white border-2 text-white hover:text-blue-100"
                 }`}
                 onClick={() => handleTabChange("toPlay")}
@@ -85,7 +97,8 @@ export default function Main() {
 
           <div className="mt-5 w-full">{renderContent()}</div>
 
-          <Create isOpen={isCreated} onClose={closeCreated} />
+          <Create isOpen={isCreated} onClose={closeCreated} onNext={openSuccess} />
+          <Success isOpen={isSuccess} />
         </div>
       </div>
     </>

@@ -4,9 +4,10 @@ import { useState } from "react";
 interface ModuleProps {
   isOpen: boolean;
   onClose: () => void;
+  onNext: () => void;
 }
 
-export default function Create({ isOpen, onClose }: ModuleProps) {
+export default function Create({ isOpen, onClose, onNext }: ModuleProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [base64Image, setBase64Image] = useState<string | null>(null);
@@ -83,6 +84,7 @@ export default function Create({ isOpen, onClose }: ModuleProps) {
       if (response.ok) {
         resetForm();
         onClose();
+        onNext();
         console.log("Game added successfully");
       } else {
         console.error("Failed to add game");
@@ -95,13 +97,13 @@ export default function Create({ isOpen, onClose }: ModuleProps) {
   const getReviewBgClass = () => {
     switch (review) {
       case "Don't Try":
-        return "bg-red-600";
+        return "red-600";
       case "Neutral":
-        return "bg-yellow-300";
+        return "yellow-300";
       case "Positive":
-        return "bg-green-300";
+        return "green-300";
       case "Overwhelmingly Positive":
-        return "bg-green-600";
+        return "green-600";
       default:
         return "";
     }
