@@ -21,7 +21,7 @@ export default function Login() {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-  const backgrounds = [
+  const backgrounds: string[] = [
     bg1.src,
     bg2.src,
     bg3.src,
@@ -32,23 +32,42 @@ export default function Login() {
     bg8.src,
   ];
 
+  const preloadImages = (images: string[]): Promise<void[]> => {
+    return Promise.all(
+      images.map((src: string) => {
+        return new Promise<void>((resolve) => {
+          const img = new window.Image();
+          img.src = src;
+          img.onload = () => {
+            resolve();
+          };
+        });
+      })
+    );
+  };
+
   useEffect(() => {
     const getRandomBackground = () => {
       const randomIndex = Math.floor(Math.random() * backgrounds.length);
       return backgrounds[randomIndex];
     };
 
-    setBackgroundImage(getRandomBackground());
-
-    const intervalId = setInterval(() => {
+    const changeBackground = async () => {
+      await preloadImages(backgrounds); 
       setBackgroundImage(getRandomBackground());
-    }, 5000);
 
-    setTimeout(() => {
-      setLoading(false);
-    }, 2500);
+      const intervalId = setInterval(() => {
+        setBackgroundImage(getRandomBackground());
+      }, 3000);
 
-    return () => clearInterval(intervalId);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2500);
+
+      return () => clearInterval(intervalId);
+    };
+
+    changeBackground();
   }, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
