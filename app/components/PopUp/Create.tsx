@@ -65,9 +65,9 @@ export default function Create({ isOpen, onClose, onNext }: ModuleProps) {
       name,
       created,
       date,
-      type:category,
+      type: category,
       review,
-      color:reviewBgColor, 
+      color: reviewBgColor,
       genres,
       image: base64Image,
     };
@@ -152,13 +152,7 @@ export default function Create({ isOpen, onClose, onNext }: ModuleProps) {
 
   const isFormValid = () => {
     return (
-      name &&
-      created &&
-      date &&
-      review &&
-      file &&
-      genres.length > 0 &&
-      category
+      name && created && date && review && file && genres.length > 0 && category
     );
   };
 

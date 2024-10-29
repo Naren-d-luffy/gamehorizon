@@ -53,7 +53,7 @@ export default function Login() {
     };
 
     const changeBackground = async () => {
-      await preloadImages(backgrounds); 
+      await preloadImages(backgrounds);
       setBackgroundImage(getRandomBackground());
 
       const intervalId = setInterval(() => {
