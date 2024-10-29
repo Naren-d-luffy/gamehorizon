@@ -58,7 +58,7 @@ export default function Login() {
 
       const intervalId = setInterval(() => {
         setBackgroundImage(getRandomBackground());
-      }, 3000);
+      }, 5000);
 
       setTimeout(() => {
         setLoading(false);
