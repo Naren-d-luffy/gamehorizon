@@ -24,8 +24,12 @@ export default function Played() {
     const fetchGame = async () => {
       try {
         const response = await fetch("/api/games");
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status} ${response.statusText}`);
+        }
+  
         const data = await response.json();
-
+  
         const playedGames = data.filter(
           (game: Game) => game.type === "Played Game"
         );
@@ -36,8 +40,10 @@ export default function Played() {
         setLoading(false);
       }
     };
+  
     fetchGame();
   }, []);
+  
 
   return (
     <div className="w-full h-screen">
