@@ -20,29 +20,41 @@ export default function Played() {
   const [games, setGames] = useState<Game[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchGame = async () => {
-      try {
-        const response = await fetch("/api/games");
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status} ${response.statusText}`);
-        }
-  
-        const data = await response.json();
-  
-        const playedGames = data.filter(
-          (game: Game) => game.type === "Played Game"
-        );
-        setGames(playedGames);
-      } catch (error) {
-        console.error("Error fetching games data:", error);
-      } finally {
-        setLoading(false);
+useEffect(() => {
+  const fetchGame = async () => {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 seconds timeout
+
+    try {
+      const response = await fetch("/api/games", {
+        signal: controller.signal,
+      });
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status} ${response.statusText}`);
       }
-    };
-  
-    fetchGame();
-  }, []);
+
+      const data = await response.json();
+
+      const playedGames = data.filter(
+        (game: Game) => game.type === "Played Game"
+      );
+      setGames(playedGames);
+    } catch (error:any) {
+      if (error.name === "AbortError") {
+        console.error("Request timed out");
+      } else {
+        console.error("Error fetching games data:", error);
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchGame();
+}, []);
+
   
 
   return (
