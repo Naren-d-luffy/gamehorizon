@@ -39,7 +39,7 @@ export default function Main() {
             <div className="relative">
               <div className={`absolute inset-0 bg-blue-700 rounded-lg `}></div>
               <button
-                className={`relative text-blue-950 bg-blue-300 text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg ${
+                className={`relative text-blue-950 bg-blue-300 text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg transition-all duration-300 ease-in-out ${
                   activeTab === "played" &&
                   "bg-transparent border-white border-2 text-white hover:text-blue-100"
                 }`}
@@ -52,7 +52,7 @@ export default function Main() {
             <div className="relative">
               <div className={`absolute inset-0 bg-blue-700 rounded-lg `}></div>
               <button
-                className={`relative text-blue-950 bg-blue-300 text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg ${
+                className={`relative text-blue-950 bg-blue-300 text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg transition-all duration-300 ease-in-out ${
                   activeTab === "playing" &&
                   "bg-transparent border-white border-2 text-white hover:text-blue-100"
                 }`}
@@ -65,7 +65,7 @@ export default function Main() {
             <div className="relative">
               <div className={`absolute inset-0 bg-blue-700 rounded-lg `}></div>
               <button
-                className={`relative text-blue-950 bg-blue-300 text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg ${
+                className={`relative text-blue-950 bg-blue-300 text-2xl font-roboto font-bold hover:-translate-y-1 hover:translate-x-1 hover:bg-transparent hover:text-white hover:underline border-blue-900 hover:border-white border-2 p-2 rounded-lg transition-all duration-300 ease-in-out ${
                   activeTab === "toPlay" &&
                   "bg-transparent border-white border-2 text-white hover:text-blue-100"
                 }`}
