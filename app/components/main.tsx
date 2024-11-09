@@ -5,15 +5,12 @@ import Create from "./PopUp/Create";
 import Played from "./Category/Played";
 import Playing from "./Category/Playing";
 import ToPlay from "./Category/ToPlay";
-import Success from "./PopUp/Success";
 
 export default function Main() {
   const [isCreated, setIsCreatedOpen] = useState(false);
-  const [isSuccess, setIsSuccessOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<string>("played");
 
   const openCreated = () => setIsCreatedOpen(true);
-  const openSuccess = () => setIsSuccessOpen(true);
   const closeCreated = () => setIsCreatedOpen(false);
 
   const handleTabChange = (tab: string) => {
@@ -32,15 +29,6 @@ export default function Main() {
         return <Played />;
     }
   };
-
-  useEffect(() => {
-    if (isSuccess) {
-      const timer = setTimeout(() => {
-        setIsSuccessOpen(false);
-      }, 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [isSuccess]);
 
   return (
     <>
@@ -103,9 +91,7 @@ export default function Main() {
           <Create
             isOpen={isCreated}
             onClose={closeCreated}
-            onNext={openSuccess}
           />
-          <Success isOpen={isSuccess} />
         </div>
       </div>
     </>

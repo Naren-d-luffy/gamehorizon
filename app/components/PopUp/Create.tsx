@@ -1,13 +1,13 @@
 "use client";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 interface ModuleProps {
   isOpen: boolean;
   onClose: () => void;
-  onNext: () => void;
 }
 
-export default function Create({ isOpen, onClose, onNext }: ModuleProps) {
+export default function Create({ isOpen, onClose}: ModuleProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [base64Image, setBase64Image] = useState<string | null>(null);
@@ -84,9 +84,22 @@ export default function Create({ isOpen, onClose, onNext }: ModuleProps) {
       if (response.ok) {
         resetForm();
         onClose();
-        onNext();
+        Swal.fire({
+          title: "Success!",
+          text: "Game was successfully.",
+          icon: "success",
+          timer: 2000,
+          showConfirmButton: false,
+        });
         console.log("Game added successfully");
       } else {
+        Swal.fire({
+          title: "Error!",
+          text: "Error saving the Game",
+          icon: "error",
+          timer: 2000,
+          showConfirmButton: false,
+        });
         console.error("Failed to add game");
       }
     } catch (error) {
