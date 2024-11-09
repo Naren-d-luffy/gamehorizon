@@ -22,21 +22,10 @@ export default function Played() {
 
   useEffect(() => {
     const fetchGame = async () => {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 seconds timeout
-
       try {
-        const response = await fetch("/api/games", {
-          signal: controller.signal,
-        });
-        clearTimeout(timeoutId);
-
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status} ${response.statusText}`);
-        }
-
+        const response = await fetch("/api/games");
         const data = await response.json();
-
+        
         const playedGames = data.filter(
           (game: Game) => game.type === "Played Game"
         );
