@@ -5,8 +5,8 @@ import Create from "./PopUp/Create";
 import Played from "./Category/Played";
 import Playing from "./Category/Playing";
 import ToPlay from "./Category/ToPlay";
-import CatLoader from "./Category/CatLoader";
 import { ObjectId } from "mongodb";
+import Loading from "./Loader/Loader";
 
 interface Game {
   _id: ObjectId;
@@ -31,6 +31,7 @@ export default function Main() {
 
   useEffect(() => {
     const fetchGames = async () => {
+      setLoading(true);
       try {
         const response = await fetch("/api/games");
         const data = await response.json();
@@ -49,19 +50,24 @@ export default function Main() {
   };
 
   const renderContent = () => {
-    if (loading) return <CatLoader />; // Show loader while fetching data
+
+  
 
     switch (activeTab) {
       case "played":
-        return <Played games={games.filter((game) => game.type === "Played Game")} />;
+        return <Played games={games.filter((game) => game.type === "Played Game")}/>;
       case "playing":
-        return <Playing games={games.filter((game) => game.type === "Currently Playing")} />;
+        return <Playing games={games.filter((game) => game.type === "Currently Playing")}/>;
       case "toPlay":
-        return <ToPlay games={games.filter((game) => game.type === "Want to Play")} />;
+        return <ToPlay games={games.filter((game) => game.type === "Want to Play")}/>;
       default:
-        return <Played games={games.filter((game) => game.type === "Played Game")} />;
+        return <Played games={games.filter((game) => game.type === "Played Game")}/>;
     }
   };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <>
