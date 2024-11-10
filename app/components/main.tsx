@@ -5,28 +5,61 @@ import Create from "./PopUp/Create";
 import Played from "./Category/Played";
 import Playing from "./Category/Playing";
 import ToPlay from "./Category/ToPlay";
+import CatLoader from "./Category/CatLoader";
+import { ObjectId } from "mongodb";
+
+interface Game {
+  _id: ObjectId;
+  image: string;
+  name: string;
+  created: string;
+  date: string;
+  review: string;
+  genres: string[];
+  color: string;
+  type: string;
+}
 
 export default function Main() {
   const [isCreated, setIsCreatedOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<string>("played");
+  const [games, setGames] = useState<Game[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const openCreated = () => setIsCreatedOpen(true);
   const closeCreated = () => setIsCreatedOpen(false);
+
+  useEffect(() => {
+    const fetchGames = async () => {
+      try {
+        const response = await fetch("/api/games");
+        const data = await response.json();
+        setGames(data);
+      } catch (error) {
+        console.error("Error fetching games data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchGames();
+  }, []);
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
   };
 
   const renderContent = () => {
+    if (loading) return <CatLoader />; // Show loader while fetching data
+
     switch (activeTab) {
       case "played":
-        return <Played />;
+        return <Played games={games.filter((game) => game.type === "Played Game")} />;
       case "playing":
-        return <Playing />;
+        return <Playing games={games.filter((game) => game.type === "Currently Playing")} />;
       case "toPlay":
-        return <ToPlay />;
+        return <ToPlay games={games.filter((game) => game.type === "Want to Play")} />;
       default:
-        return <Played />;
+        return <Played games={games.filter((game) => game.type === "Played Game")} />;
     }
   };
 
