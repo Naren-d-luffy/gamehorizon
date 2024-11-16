@@ -19,7 +19,7 @@ interface ToPlayProps {
   games: Game[];
 }
 
-export default function ToPlay({ games}: ToPlayProps) {
+export default function ToPlay({ games }: ToPlayProps) {
   return (
     <div className="w-full h-screen">
       <div className="w-full h-3/4 gap-10 flex p-20 pt-0 pb-5">

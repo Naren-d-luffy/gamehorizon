@@ -40,13 +40,20 @@ export default function GameCard({ game }: GameCardProps) {
             {game.created}
           </h3>
           <h3 className="text-gray-400 font-medium font-roboto px-4 pb-2">
-            Release Date: <span className="text-gray-200 font-normal">{game.date}</span>
+            Release Date:{" "}
+            <span className="text-gray-200 font-normal">{game.date}</span>
           </h3>
           <h3 className="text-gray-400 font-medium px-4 pb-2">
-            Reviews: <span className={`p-1.5 text-white bg-${game.color} rounded-xl`}>{game.review}</span>
+            Reviews:{" "}
+            <span className={`p-1.5 text-white bg-${game.color} rounded-xl`}>
+              {game.review}
+            </span>
           </h3>
           <h3 className="text-gray-400 font-medium font-roboto px-4 text-justify">
-            Genres: <span className="text-gray-200 font-normal">{game.genres.join(", ")}</span>
+            Genres:{" "}
+            <span className="text-gray-200 font-normal">
+              {game.genres.join(", ")}
+            </span>
           </h3>
         </div>
       </div>

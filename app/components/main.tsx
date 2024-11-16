@@ -50,18 +50,27 @@ export default function Main() {
   };
 
   const renderContent = () => {
-
-  
-
     switch (activeTab) {
       case "played":
-        return <Played games={games.filter((game) => game.type === "Played Game")}/>;
+        return (
+          <Played games={games.filter((game) => game.type === "Played Game")} />
+        );
       case "playing":
-        return <Playing games={games.filter((game) => game.type === "Currently Playing")}/>;
+        return (
+          <Playing
+            games={games.filter((game) => game.type === "Currently Playing")}
+          />
+        );
       case "toPlay":
-        return <ToPlay games={games.filter((game) => game.type === "Want to Play")}/>;
+        return (
+          <ToPlay
+            games={games.filter((game) => game.type === "Want to Play")}
+          />
+        );
       default:
-        return <Played games={games.filter((game) => game.type === "Played Game")}/>;
+        return (
+          <Played games={games.filter((game) => game.type === "Played Game")} />
+        );
     }
   };
 
@@ -127,10 +136,7 @@ export default function Main() {
 
           <div className="mt-5 w-full">{renderContent()}</div>
 
-          <Create
-            isOpen={isCreated}
-            onClose={closeCreated}
-          />
+          <Create isOpen={isCreated} onClose={closeCreated} />
         </div>
       </div>
     </>

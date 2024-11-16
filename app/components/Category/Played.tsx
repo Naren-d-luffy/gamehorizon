@@ -20,7 +20,7 @@ interface PlayedProps {
   games: Game[];
 }
 
-export default function Played({ games}: PlayedProps) {
+export default function Played({ games }: PlayedProps) {
   return (
     <div className="w-full h-screen">
       <div className="w-full h-3/4 gap-10 flex p-20 pt-0 pb-5">
