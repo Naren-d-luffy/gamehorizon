@@ -7,7 +7,7 @@ interface ModuleProps {
   onClose: () => void;
 }
 
-export default function Create({ isOpen, onClose}: ModuleProps) {
+export default function Create({ isOpen, onClose }: ModuleProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [base64Image, setBase64Image] = useState<string | null>(null);
