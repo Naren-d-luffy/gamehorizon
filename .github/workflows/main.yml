@@ -23,7 +23,7 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
           # Commands to execute on the remote EC2 instance
-          cd /path/to/your/project
+          cd /gamehorizon
           git pull origin master
           npm install
           pm2 restart all
