@@ -23,15 +23,25 @@ jobs:
     - name: Deploy to EC2
       run: |
         ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
-          # Navigate to the project directory
+          # Debug: Check connection and directory
+          echo "Connected to EC2"
+          ls -la /gamehorizon || echo "Directory does not exist"
+
           cd /gamehorizon || exit
 
-          # Pull the latest changes
+          # Debug: Check Git and Node.js setup
+          git --version || echo "Git is not installed"
+          node --version || echo "Node.js is not installed"
+
+          # Pull the latest code
           git pull origin master
 
           # Install dependencies
           npm install --production
 
+          # Debug: Check PM2 setup
+          pm2 --version || echo "PM2 is not installed"
+
           # Restart the application using pm2
-          pm2 reload all --update-env
+          pm2 reload all --update-env || pm2 start index.js --name gamehorizon
         EOF
