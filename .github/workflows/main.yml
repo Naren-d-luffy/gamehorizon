@@ -18,31 +18,16 @@ jobs:
         mkdir -p ~/.ssh
         echo "${{ secrets.EC2_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+        ls -la ~/.ssh
+        ssh-keygen -y -f ~/.ssh/id_rsa
 
     - name: Deploy to EC2
       run: |
-        ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
-          # Debug: Check connection and directory
-          echo "Connected to EC2"
-          ls -la /gamehorizon || echo "Directory does not exist"
-
-          cd /gamehorizon || exit
-
-          # Debug: Check Git and Node.js setup
-          git --version || echo "Git is not installed"
-          node --version || echo "Node.js is not installed"
-
-          # Pull the latest code
+        ssh -v -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+          echo "Connected successfully"
+          cd /gamehorizon || { echo "Directory does not exist"; mkdir /gamehorizon; }
+          cd /gamehorizon
           git pull origin master
-
-
-          # Install dependencies
-          npm install --production
-
-          # Debug: Check PM2 setup
-          pm2 --version || echo "PM2 is not installed"
-
-          # Restart the application using pm2
-          pm2 reload all --update-env || pm2 start index.js --name gamehorizon
+          npm install
+          pm2 restart all
         EOF
